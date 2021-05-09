@@ -9,6 +9,7 @@ on:
 env:
   GitHubMail: "boibusy5@gmail.com"
   GitHubName: "nobody6699" 
+  Branch: "alpha"
 jobs:
   build:
     runs-on: ubuntu-20.04
@@ -27,7 +28,7 @@ jobs:
        - name: cloning repo
          continue-on-error: true
          run: |
-           git clone https://${GitHubName}:${{ secrets.GH_TOKEN }}@github.com/${{ secrets.CREDS }} userge
+           git clone https://${GitHubName}:${{ secrets.GH_TOKEN }}@github.com/${{ secrets.MIRROR_REPOSLUG }} -b ${Branch} userge
        - name: Running Userge
          timeout-minutes: 350
          continue-on-error: true
